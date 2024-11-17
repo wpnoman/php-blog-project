@@ -1,4 +1,4 @@
 <?php
-echo 't';
+echo 'hello';
 
 ?>
