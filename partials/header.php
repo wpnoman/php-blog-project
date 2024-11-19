@@ -1,3 +1,5 @@
+<?php include './utility/helper.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,10 +26,9 @@
 
         <!-- Navigation Menu -->
         <nav id="menu" class="hidden md:flex space-x-6">
-            <a href="#" class="hover:underline px-4 py-2 rounded-md bg-slate-700 font-bold text-white">Home</a>
-            <a href="#" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Categories</a>
-            <a href="#" class="hover:underline text-slate-300 px-4 py-2 rounded-md">About</a>
-            <a href="#" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Contact</a>
+            <a href="./" class="hover:underline px-4 py-2 rounded-md bg-slate-700 font-bold text-white">Home</a>
+            <a href="./details.php" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Details</a>
+            <a href="./list.php" class="hover:underline text-slate-300 px-4 py-2 rounded-md">List</a>
         </nav>
     </div>
 
