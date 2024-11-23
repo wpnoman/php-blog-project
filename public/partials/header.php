@@ -1,5 +1,3 @@
-<?php include './utility/helper.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
