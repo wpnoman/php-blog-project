@@ -13,7 +13,7 @@
 <header class="bg-slate-800 text-white shadow-lg">
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
         <!-- Logo -->
-        <a href="#" class="text-3xl font-bold">Blogify</a>
+        <a href="/" class="text-3xl font-bold">Blogify</a>
 
         <!-- Hamburger Button (Mobile) -->
         <button id="menu-toggle" class="text-white md:hidden">
@@ -25,8 +25,8 @@
         <!-- Navigation Menu -->
         <nav id="menu" class="hidden md:flex space-x-6">
             <a href="./" class="hover:underline px-4 py-2 rounded-md bg-slate-700 font-bold text-white">Home</a>
-            <a href="./details.php" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Details</a>
-            <a href="./list.php" class="hover:underline text-slate-300 px-4 py-2 rounded-md">List</a>
+            <a href="./list" class="hover:underline text-slate-300 px-4 py-2 rounded-md">List</a>
+            <a href="./details.php" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Admin</a>
         </nav>
     </div>
 

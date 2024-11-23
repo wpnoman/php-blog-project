@@ -1,5 +1,12 @@
 <?php include 'partials/header.php'?>
 
+<?php 
+    $db_config = require '../config.php';
+    $db = new Database( $db_config );
+    dd($db);
+
+?>
+
 <!-- Hero Section -->
 <section class="bg-slate-800 text-white py-20">
     <div class="container mx-auto text-center">

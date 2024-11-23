@@ -4,7 +4,7 @@ $request_url =  parse_url($_SERVER['REQUEST_URI'])['path'];
 
 $routes = [
     '/' => '../public/views/index.view.php',
-    '/hello' => '../public/views/index.view.php',
+    '/list' => '../public/views/list.view.php',
 ];
 
 // if( f )
