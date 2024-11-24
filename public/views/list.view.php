@@ -1,5 +1,13 @@
 <?php include 'partials/header.php'?>
 
+<?php 
+    $db_config = require '../config.php';
+    $db = new Database( $db_config );
+    
+    // sql
+    $query = 'SELECT * FROM posts';
+    $posts = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+?>
 
 <!-- Search and Filter Form -->
 <section class="bg-white py-10">
@@ -34,16 +42,20 @@
     <div class="container mx-auto">
         <h1 class="text-4xl font-extrabold text-slate-900 text-center mb-10">Explore Our Blogs</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+            <?php foreach( $posts as $post ):?>
+            
+            <?php if( $post['post_status'] != 'active') return; ?>
             <!-- Blog Card -->
             <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300">
                 <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="w-full h-48 object-cover">
                 <div class="p-6">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">How to Build Vue.js Applications</h3>
-                    <p class="text-gray-600 mb-4">Explore tips and tools for creating modern, scalable Vue.js apps.</p>
-                    <a href="#" class="text-slate-800 font-medium hover:underline">Read More</a>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-2"><?= $post['name'];  ?></h3>
+                    <p class="text-gray-600 mb-4"><?= $post['content'];  ?></p>
+                    <a href="/details?slug=<?= $post['slug'];  ?>" class="text-slate-800 font-medium hover:underline">Read More</a>
                 </div>
             </div>
-            <!-- Repeat similar cards for other blogs -->
+            <?php endforeach; ?>
         </div>
 
         <!-- Pagination -->

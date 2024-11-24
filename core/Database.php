@@ -1,13 +1,27 @@
 <?php 
 
 class Database{
-    function __construct( $dsn, $username = 'root', $password = '' ){
+
+    // db connection
+    public $conn;
+
+    public function __construct( $dsn, $username = 'root', $password = '' ){
+
+        // dsn
         $dsn_build = 'mysql:' . http_build_query( $dsn, '', ';');
         
-        $conn = new PDO($dsn_build, $username, $password);
-        
-        print_r($dsn_build);    
+        // instance PDO
+        $this->conn = new PDO($dsn_build, $username, $password);
+       
     }
+
+    public function query( $q ){
+        $statement = $this->conn->prepare($q);
+        $statement->execute();
+
+        return $statement;
+    }
+    
 }
 
 
