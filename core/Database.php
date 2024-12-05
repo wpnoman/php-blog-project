@@ -15,9 +15,9 @@ class Database{
        
     }
 
-    public function query( $q ){
+    public function query( $q, $params = [] ){
         $statement = $this->conn->prepare($q);
-        $statement->execute();
+        $statement->execute($params);
 
         return $statement;
     }

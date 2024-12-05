@@ -10,4 +10,13 @@
         print_r($v);
         echo '</pre>';
     }
-    // <?php echo ( isUrl() == '/index.php') ? 'bg-slate-700 font-bold text-white' : ''?>
+   
+    function abort( $status = 404 ){
+        http_response_code( $status );
+
+        require "../public/views/{$status}.view.php";
+
+        die();
+
+    }
+

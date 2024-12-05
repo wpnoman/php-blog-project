@@ -1,24 +1,4 @@
 <?php include 'partials/header.php'?>
-<?php 
-
-    // redirect if slug is empty or not set
-    if( !isset($_GET['slug']) ){
-        header('Location: '. '/404');
-    }
-
-    $db_config = require '../config.php';
-    $db = new Database( $db_config );
-    
-    // get slug
-    $slug = htmlspecialchars( $_GET['slug'] );
-    
-    // sql
-    $query = "SELECT * FROM `posts` WHERE `slug` = '$slug'";
-    // dd($query);
-    // exit;
-    $post = $db->query($query)->fetch(PDO::FETCH_ASSOC);
-?>
-
 <!-- Blog Details -->
 <section class="bg-white">
     <div class="container mx-auto px-6 py-12">
