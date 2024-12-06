@@ -1,6 +1,7 @@
-<?php include '../admin-panel/partials/header.php' ?>
-<?php include 'partials/aside.php' ?>
+<?php include 'partials/admin/header.php'?>
+<?php include 'partials/admin/aside.php'?>
 
+<?php // include 'par' ?>
 <!-- Main Content -->
     <main class="flex-grow">
         <!-- Header with Profile -->
@@ -36,7 +37,7 @@
         <section id="blogs-section" class="p-6">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Blogs</h2>
             <div class="mb-6">
-                <a href="/create-blog" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create New Blog</a>
+                <a href="<?php echo admin_url('/create-blog'); ?>" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create New Blog</a>
             </div>
             <div class="overflow-x-auto bg-white rounded-lg shadow-lg p-4">
                 <table class="w-full border-collapse border border-slate-300">
@@ -77,4 +78,4 @@
         </section>
     </main>
 
-    <?php include '../admin-panel/partials/footer.php' ?>
+    <?php include 'partials/admin/footer.php'?>

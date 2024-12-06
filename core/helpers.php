@@ -20,3 +20,8 @@
 
     }
 
+    function admin_url( $path = '/' ){
+        $admin_url = '/admin-panel' . $path ;
+
+        return $admin_url;
+    }
