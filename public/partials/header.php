@@ -26,7 +26,7 @@
         <nav id="menu" class="hidden md:flex space-x-6">
             <a href="./" class="hover:underline px-4 py-2 rounded-md bg-slate-700 font-bold text-white">Home</a>
             <a href="./list" class="hover:underline text-slate-300 px-4 py-2 rounded-md">List</a>
-            <a href="./details.php" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Admin</a>
+            <a href="<?php echo admin_url(); ?>" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Admin</a>
         </nav>
     </div>
 

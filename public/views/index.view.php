@@ -6,7 +6,7 @@
     
     // sql
     $query = 'SELECT * FROM posts';
-    $posts = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    $posts = $db->query($query)->get();
 ?>
 
 <!-- Hero Section -->

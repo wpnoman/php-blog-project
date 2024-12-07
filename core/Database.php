@@ -5,6 +5,8 @@ class Database{
     // db connection
     public $conn;
 
+    public $statement;
+
     public function __construct( $dsn, $username = 'root', $password = '' ){
 
         // dsn
@@ -16,12 +18,31 @@ class Database{
     }
 
     public function query( $q, $params = [] ){
-        $statement = $this->conn->prepare($q);
-        $statement->execute($params);
 
-        return $statement;
+        $this->statement = $this->conn->prepare($q);
+
+        $this->statement->execute($params);
+
+        return $this;
+    }
+
+    public function get(){
+        return $this->statement->fetchAll();
+    }
+
+    public function find(){
+        return $this->statement->fetch();
     }
     
+    public function findOrFail(){
+        $result = $this->find();
+
+        if( ! $result ){
+            abort();
+        }
+
+        return $result;
+    }
 }
 
 

@@ -34,20 +34,24 @@
                 <table class="w-full border-collapse border border-slate-300">
                     <thead class="bg-slate-800 text-white">
                     <tr>
+                        <th class="text-left py-3 px-4">ID</th>
                         <th class="text-left py-3 px-4">Name</th>
-                        <th class="text-left py-3 px-4">Author</th>
+                        <th class="text-left py-3 px-4">Slug</th>
                         <th class="text-left py-3 px-4">Actions</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="hover:bg-slate-50">
-                        <td class="py-3 px-4">Cat 1</td>
-                        <td class="py-3 px-4">John Doe</td>
-                        <td class="py-3 px-4 flex space-x-4">
-                            <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                            <a href="#" class="text-red-600 hover:underline">Delete</a>
-                        </td>
-                    </tr>
+                        <?php foreach ($category as $key => $data): ?>
+                            <tr class="hover:bg-slate-50">
+                                <td class="py-3 px-4"><?php echo $data['id']; ?></td>
+                                <td class="py-3 px-4"><?php echo $data['name']; ?></td>
+                                <td class="py-3 px-4"><?php echo $data['slug']; ?></td>
+                                <td class="py-3 px-4 flex space-x-4">
+                                    <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     <!-- Repeat similar rows -->
                     </tbody>
                 </table>
