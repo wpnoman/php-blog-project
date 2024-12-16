@@ -16,14 +16,8 @@
 
     $post = $db->query( 'SELECT * FROM posts WHERE slug = :slug', [
         'slug' => $slug
-    ])->fetch(PDO::FETCH_ASSOC);
+    ])->findOrFail();
 
-    if( ! $post ){
-        abort();
-    }
-
-    if( $current_user != $post['user_id'] ){
-        abort( Response::FORBIDDEN );
-    }
+    authorize( $current_user == $post['user_id']);
 
     include '../public/views/details.view.php';

@@ -20,6 +20,12 @@
 
     }
 
+    function authorize( $condision, $status = Response::FORBIDDEN){
+        if( ! $condision ){
+            abort( $status );
+        }
+    }
+
     function admin_url( $path = '/' ){
         $admin_url = '/admin-panel' . $path ;
 

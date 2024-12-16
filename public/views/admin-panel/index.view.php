@@ -37,7 +37,7 @@
         <section id="blogs-section" class="p-6">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Blogs</h2>
             <div class="mb-6">
-                <a href="<?php echo admin_url('/create-blog'); ?>" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create New Blog</a>
+                <a href="<?php echo admin_url('/create-blog/'); ?>" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create New Blog</a>
             </div>
             <div class="overflow-x-auto bg-white rounded-lg shadow-lg p-4">
                 <table class="w-full border-collapse border border-slate-300">
@@ -53,10 +53,8 @@
                         <?php foreach ( $posts as $key => $post ): ?>
                             <tr class="hover:bg-slate-50">
                                 <td class="py-3 px-4"><?php echo $post['name']; ?></td>
-                                <td class="py-3 px-4"><?php echo $post['name']; ?></td>
-                                
-                                <td class="py-3 px-4">John Doe</td>
-                                <td class="py-3 px-4">15 Nov 2024</td>
+                                <td class="py-3 px-4"><?php echo $post['user_id']; ?></td>
+                                <td class="py-3 px-4"><?php echo date('d M y', strtotime ($post['created_at'])); ?></td>
                                 <td class="py-3 px-4 flex space-x-4">
                                     <a href="#" class="text-blue-600 hover:underline">Edit</a>
                                     <a href="#" class="text-red-600 hover:underline">Delete</a>
