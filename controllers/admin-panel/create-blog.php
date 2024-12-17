@@ -1,17 +1,20 @@
 <?php
 
+require '../core/Validation.php';
+
 $db_config = require '../config.php';
 $db = new Database( $db_config );
+$validator = new Validatator();
 // $posts = $db->query( 'SELECT * from posts')->get();
 $category = $db->query( 'SELECT * from category')->get();
 
 $current_user_id = 2;
 
+// init errors
+$error = [];
+
 // submit category
 if( $_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    // init errors
-    $error = [];
 
     // post values
     $post_title =       htmlspecialchars($_POST["post_title"]);
@@ -21,11 +24,11 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST'){
     $post_content =     $_POST["post_content"];
     $post_category =    intval( $_POST["post_category"] );
 
-    if( strlen(trim($post_title) ) == 0 ){
+    if( $validator->require($post_title ) ){
         $error['title'] = 'Title can\'t be empty';
     }
 
-    if( strlen($post_title ) > 100 ){
+    if( $validator->word_lenths( $post_title ) ){
         $error['title'] = 'Max title lenght should be less then 100';
     }
 
@@ -44,4 +47,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST'){
     
 }
 
-require '../public/views/admin-panel/create-blog.view.php';
+view( 'admin-panel/create-blog', [
+    'error' => $error,
+    'category' => $category
+] );

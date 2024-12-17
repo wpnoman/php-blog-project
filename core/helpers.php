@@ -31,3 +31,10 @@
 
         return $admin_url;
     }
+
+    function view( $path, $attributes = [] ){
+
+        extract($attributes );
+        // dd( __DIR__ );
+        require "../public/views/{$path}.view.php";
+    }
