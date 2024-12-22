@@ -1,4 +1,9 @@
 <?php 
+
+use core\Helpers;
+use core\Database;
+use core\Response;
+
 session_start();
     // redirect if slug is empty or not set
     if( !isset($_GET['slug']) ){

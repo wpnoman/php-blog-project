@@ -3,8 +3,13 @@
 const BASE_PATH =  '../';
 
 
-spl_autoload_register( function($classes){
-    require BASE_PATH . 'core/' . $classes.'.php';
+spl_autoload_register( function($class){
+
+
+    $class = str_replace( '\\', DIRECTORY_SEPARATOR, $class);
+
+
+    require BASE_PATH . $class.'.php';
 } );
 
 require '../core/router.php';

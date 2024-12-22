@@ -1,4 +1,9 @@
-<?php include Helpers::base_path('views/partials/header.php')?>
+<?php 
+
+use Core\Helpers;
+use Core\Database;
+
+include Helpers::base_path('views/partials/header.php')?>
 
 <?php 
     $db_config = require '../config.php';

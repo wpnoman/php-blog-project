@@ -1,5 +1,6 @@
 <?php
 
+use Core\Helpers;
 
 $heading = 'Welcome to Blogify';
 

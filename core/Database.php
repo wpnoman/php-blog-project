@@ -1,5 +1,8 @@
 <?php 
 
+namespace Core;
+use Core\Helpers;
+
 class Database{
 
     // db connection
@@ -13,7 +16,7 @@ class Database{
         $dsn_build = 'mysql:' . http_build_query( $dsn, '', ';');
         
         // instance PDO
-        $this->conn = new PDO($dsn_build, $username, $password);
+        $this->conn = new \PDO($dsn_build, $username, $password);
        
     }
 
@@ -38,22 +41,9 @@ class Database{
         $result = $this->find();
 
         if( ! $result ){
-            abort();
+            Helpers::abort();
         }
 
         return $result;
     }
 }
-
-
-
-/// table infor for post
-
-// id 
-// name
-// slug
-// content
-// created_at
-// updated_at
-// Post_status
-// delated_at
