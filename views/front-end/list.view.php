@@ -1,12 +1,16 @@
-<?php include 'partials/header.php'?>
-
 <?php 
+
+    use Core\Helpers;
+    use Core\Database;
+
+    include Helpers::base_path('views/partials/header.php');
+
     $db_config = require '../config.php';
     $db = new Database( $db_config );
-    
+
     // sql
     $query = 'SELECT * FROM posts';
-    $posts = $db->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    $posts = $db->query($query)->get();
 ?>
 
 <!-- Search and Filter Form -->
@@ -80,4 +84,4 @@
     </div>
 </section>
 
-<?php include 'partials/footer.php'?>
+<?php include Helpers::base_path('views/partials/footer.php'); ?>

@@ -3,7 +3,7 @@
 use Core\Helpers;
 use Core\Database;
 
-include Helpers::base_path('views/partials/header.php')?>
+include Helpers::base_path('views/partials/header.php'); ?>
 
 <?php 
     $db_config = require '../config.php';
@@ -47,4 +47,4 @@ include Helpers::base_path('views/partials/header.php')?>
     </div>
 </main>
 
-<?php include Helpers::base_path('views/partials/footer.php')?>
+<?php include Helpers::base_path('views/partials/footer.php'); ?>
