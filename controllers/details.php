@@ -1,12 +1,15 @@
-
 <?php 
-
+session_start();
     // redirect if slug is empty or not set
     if( !isset($_GET['slug']) ){
         abort();
     }
+    
+    if( empty( $_SESSION["user_id"] ) ){
+        abort( Response::FORBIDDEN );
+    }
 
-    $current_user = 1;
+    $current_user = $_SESSION["user_id"];
 
     $db_config = require '../config.php';
     $db = new Database( $db_config );
