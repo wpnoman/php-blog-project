@@ -2,11 +2,11 @@
 session_start();
     // redirect if slug is empty or not set
     if( !isset($_GET['slug']) ){
-        abort();
+        Helpers::abort();
     }
     
     if( empty( $_SESSION["user_id"] ) ){
-        abort( Response::FORBIDDEN );
+        Helpers::abort( Response::FORBIDDEN );
     }
 
     $current_user = $_SESSION["user_id"];
@@ -21,6 +21,6 @@ session_start();
         'slug' => $slug
     ])->findOrFail();
 
-    authorize( $current_user == $post['user_id']);
+    Helpers::authorize( $current_user == $post['user_id']);
 
     include '../public/views/details.view.php';

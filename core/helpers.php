@@ -14,9 +14,10 @@
         }
     
         static function abort( $status = 404 ){
-            http_response_code( $status );
+            http_response_code( response_code: $status );
 
-            require "../public/views/{$status}.view.php";
+            self::view($status);
+            
 
             die();
 
