@@ -5,4 +5,4 @@ $db = new Database( $db_config );
 $posts = $db->query( 'SELECT * from posts')->get();
 // $category = $db->query( 'SELECT * from category')->get();
 
-require '../public/views/admin-panel/index.view.php';
+require Helpers::base_path('views/admin/index.view.php');

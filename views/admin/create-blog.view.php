@@ -1,5 +1,5 @@
-    <?php include 'partials/admin/header.php'?>
-    <?php include 'partials/admin/aside.php'?>
+<?php include Helpers::base_path('views/partials/admin/header.php')?>
+<?php include Helpers::base_path('views/partials/admin/aside.php')?>
 
     <!-- Main Content -->
     <main class="flex-grow">
@@ -49,4 +49,4 @@
         </section>
     </main>
 
-    <?php include 'partials/admin/footer.php'?>
+    <?php include Helpers::base_path('views/partials/admin/footer.php')?>

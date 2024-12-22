@@ -47,7 +47,7 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST'){
     
 }
 
-view( 'admin-panel/create-blog', [
+Helpers::view( 'admin/create-blog', [
     'error' => $error,
     'category' => $category
 ] );

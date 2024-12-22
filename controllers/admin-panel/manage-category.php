@@ -19,4 +19,10 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST'){
 
 // print_r($_REQUEST);
 
-require '../public/views/admin-panel/manage-category.view.php';
+// require '../public/views/admin-panel/manage-category.view.php';
+Helpers::view(
+    'admin/manage-category',
+    [
+        'category' => $category
+    ]
+);

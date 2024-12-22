@@ -1,4 +1,4 @@
-<?php include 'partials/header.php'?>
+<?php include Helpers::base_path('views/partials/header.php')?>
 
 <?php 
     $db_config = require '../config.php';
@@ -12,7 +12,7 @@
 <!-- Hero Section -->
 <section class="bg-slate-800 text-white py-20">
     <div class="container mx-auto text-center">
-        <h1 class="text-5xl font-extrabold mb-4">Welcome to Blogify</h1>
+        <h1 class="text-5xl font-extrabold mb-4"><?php echo $heading; ?></h1>
         <p class="text-lg font-medium mb-6">Discover the latest in tech, programming, and design inspired by Vue.js.</p>
         <a href="#posts" class="px-6 py-3 bg-slate-700 text-white font-bold rounded-lg shadow-md hover:bg-slate-600 transition duration-300">
             Browse Posts
@@ -42,4 +42,4 @@
     </div>
 </main>
 
-<?php include 'partials/footer.php'?>
+<?php include Helpers::base_path('views/partials/footer.php')?>
