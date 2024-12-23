@@ -14,8 +14,10 @@ spl_autoload_register( function($class){
 } );
 
 
+require \Core\Helpers::base_path('bootstrap.php');
+
 $router = new \Core\Router();
-require \Core\Helpers::base_path('views/router.php');
+require \Core\Helpers::base_path('router.php');
 
 // get request URI
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];

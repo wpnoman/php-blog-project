@@ -1,13 +1,13 @@
-<?php 
+<?php
 
+use Core\App;
 use Core\Helpers;
 use Core\Database;
 
 include Helpers::base_path('views/partials/header.php'); ?>
 
 <?php 
-    $db_config = require '../config.php';
-    $db = new Database( $db_config );
+    $db = App::resolve(Database::class );
     
     // sql
     $query = 'SELECT * FROM posts';
