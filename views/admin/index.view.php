@@ -1,3 +1,8 @@
+<?php
+
+use Core\Helpers;
+
+?>
 <?php include Helpers::base_path('views/partials/admin/header.php')?>
 <?php include Helpers::base_path('views/partials/admin/aside.php')?>
 

@@ -1,4 +1,6 @@
 <?php
+use Core\Database;
+use Core\Helpers;
 
 $db_config = require '../config.php';
 $db = new Database( $db_config );

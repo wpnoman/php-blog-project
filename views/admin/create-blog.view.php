@@ -1,5 +1,9 @@
-<?php include Helpers::base_path('views/partials/admin/header.php')?>
-<?php include Helpers::base_path('views/partials/admin/aside.php')?>
+<?php
+    use Core\Helpers;
+
+    include Helpers::base_path('views/partials/admin/header.php');
+    include Helpers::base_path('views/partials/admin/aside.php');
+ ?>
 
     <!-- Main Content -->
     <main class="flex-grow">

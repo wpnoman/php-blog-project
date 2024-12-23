@@ -1,10 +1,14 @@
 <?php
 
+use Core\Database;
+use Core\Helpers;
+use Core\Validator;
+
 require '../core/Validator.php';
 
 $db_config = require '../config.php';
 $db = new Database( $db_config );
-$validator = new validator();
+$validator = new Validator();
 // $posts = $db->query( 'SELECT * from posts')->get();
 $category = $db->query( 'SELECT * from category')->get();
 

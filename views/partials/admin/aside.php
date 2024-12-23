@@ -1,4 +1,8 @@
- <!-- Sidebar -->
+<?php
+    use Core\Helpers;
+?>
+
+<!-- Sidebar -->
  <aside class="w-64 bg-slate-800 text-white flex flex-col">
     <div class="p-6 text-center font-bold text-2xl tracking-wide border-b border-slate-700">Admin Panel</div>
     <nav class="flex-grow">

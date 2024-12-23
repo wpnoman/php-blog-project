@@ -15,7 +15,7 @@ spl_autoload_register( function($class){
 
 
 $router = new \Core\Router();
-$routes = require \Core\Helpers::base_path('views/router.php');
+require \Core\Helpers::base_path('views/router.php');
 
 // get request URI
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
