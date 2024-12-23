@@ -62,7 +62,11 @@ use Core\Helpers;
                                 <td class="py-3 px-4"><?php echo date('d M y', strtotime ($post['created_at'])); ?></td>
                                 <td class="py-3 px-4 flex space-x-4">
                                     <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                                    <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                    <form method="POST" action="#">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input type="hidden" name="post_id" value="<?= $post['id']; ?>">
+                                        <input type="submit" value="Delete" class="text-red-600 hover:underline">
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>

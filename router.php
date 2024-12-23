@@ -16,3 +16,5 @@
     $router->get('/list', 'controllers/list.php');
     $router->get('/admin-panel/', 'controllers/admin-panel/admin.php');
     $router->get('/admin-panel/create-blog/', 'controllers/admin-panel/create-blog.php');
+    
+    $router->delete('/admin-panel/', 'controllers/admin-panel/actions/destroy.php');
