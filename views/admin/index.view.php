@@ -6,6 +6,12 @@ use Core\Helpers;
 <?php include Helpers::base_path('views/partials/admin/header.php')?>
 <?php include Helpers::base_path('views/partials/admin/aside.php')?>
 
+<?php 
+
+    $current_user_id = intval($_SESSION['user_id']);
+    $user_name = Helpers::author_name( $current_user_id );
+?>
+
 <?php // include 'par' ?>
 <!-- Main Content -->
     <main class="flex-grow">
@@ -16,7 +22,7 @@ use Core\Helpers;
             <div class="relative">
                 <button id="profile-menu-button" class="flex items-center space-x-3 focus:outline-none">
                     <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full">
-                    <span class="hidden md:block text-slate-800 font-medium">John Doe</span>
+                    <span class="hidden md:block text-slate-800 font-medium"><?php echo $user_name; ?></span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-600" viewBox="0 0 20 20" fill="currentColor">
                         <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06-.02L10 10.853l3.71-3.664a.75.75 0 111.04 1.082l-4.25 4.197a.75.75 0 01-1.042 0l-4.25-4.197a.75.75 0 01-.02-1.06z" clip-rule="evenodd" />
                     </svg>

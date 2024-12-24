@@ -68,4 +68,11 @@
             } 
         }
 
+        static function author_name( $user_id ){
+            $db = App::resolve('Core\Database');
+            return $db->query('SELECT name FROM users WHERE id = :user_id', [
+                'user_id' => $user_id
+            ])->find()['name'];
+        }
+
     }
