@@ -13,6 +13,8 @@ spl_autoload_register( function($class){
     require BASE_PATH . $class.'.php';
 } );
 
+// starting sessions
+session_start();
 
 require \Core\Helpers::base_path('bootstrap.php');
 
@@ -25,5 +27,3 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 
 // send request URL
 $router->route( $uri, $method);
-
-// Helpers::dd(['hello', 'hadd']);

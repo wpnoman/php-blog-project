@@ -23,3 +23,8 @@
     // editing post
     $router->get( '/admin-panel/edit-post', 'controllers/admin-panel/actions/edit-post.php' );
     $router->patch( '/admin-panel/edit-post', 'controllers/admin-panel/actions/update-post.php' );
+
+
+    // login register
+    $router->get('/login', 'controllers/login.php' );
+    $router->post('/login', 'controllers/admin-panel/actions/manage-login.php' );

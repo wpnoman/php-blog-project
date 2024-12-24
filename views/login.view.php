@@ -1,46 +1,3 @@
-<?php 
-
-// Start the session
-session_start();
-
-require '../core/Validator.php';
-
-dd( $_SESSION["user_id"] );
-
-
-$validator = new validator();
-
-$db_config = require '../config.php';
-$db = new Database( $db_config );
-
-$error=[];
-
-
-if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    if( $validator->email( $email) ){
-        $error ['email'] = 'Invalid email format';
-    }
-
-    if( $validator->require( $password) ){
-        $error ['password'] = 'Password can\'t be empty';
-    }
-
-    if( empty( $error ) ){
-        $user = $db->query('SELECT * from users where email=:email AND password=:password',[
-            'email' => $email,
-            'password' => $password
-        ])->find();
-
-        if( !empty($user) ){
-            
-            $_SESSION["user_id"] = $user['id'];
-        }
-    }
-}
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -81,6 +38,11 @@ if( $_SERVER['REQUEST_METHOD'] == 'POST' ){
             </label>
             <a href="#" class="text-slate-600 hover:underline text-sm">Forgot Password?</a>
         </div>
+        <?php 
+            if( isset($error['notfound'] ) ){
+                echo '<p class="text-red-500 pb-2 text-center">'. $error['notfound'] .'</p>';
+            }
+        ?>
         <button type="submit" class="w-full px-4 py-2 bg-slate-800 text-white font-bold rounded-lg hover:bg-slate-700 transition">Login</button>
     </form>
     <p class="text-center text-slate-600 mt-4">Don't have an account? <a href="./register.php" class="text-slate-800 font-bold hover:underline">Sign Up</a></p>
