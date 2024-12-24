@@ -15,6 +15,11 @@
     $router->get('/', 'controllers/index.php');
     $router->get('/list', 'controllers/list.php');
     $router->get('/admin-panel/', 'controllers/admin-panel/admin.php');
-    $router->get('/admin-panel/create-blog/', 'controllers/admin-panel/create-blog.php');
+    $router->get('/admin-panel/create-post/', 'controllers/admin-panel/actions/create-post.php');
     
+    // deleting post
     $router->delete('/admin-panel/', 'controllers/admin-panel/actions/destroy.php');
+
+    // editing post
+    $router->get( '/admin-panel/edit-post', 'controllers/admin-panel/actions/edit-post.php' );
+    $router->patch( '/admin-panel/edit-post', 'controllers/admin-panel/actions/update-post.php' );

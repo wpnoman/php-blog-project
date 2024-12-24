@@ -11,8 +11,8 @@ class Validator{
         return false;
     }
 
-    function word_lenths( $value, $max = 100, $min = 10 ){
-        if( strlen($value) >= $max ||  strlen($value) < $min ){
+    function word_lenths( $value, $max = 100 ){
+        if( strlen($value) > $max ){
             return true;
         }
         return false;

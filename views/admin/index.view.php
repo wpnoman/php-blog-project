@@ -42,7 +42,7 @@ use Core\Helpers;
         <section id="blogs-section" class="p-6">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Blogs</h2>
             <div class="mb-6">
-                <a href="<?php echo Helpers::admin_url('/create-blog/'); ?>" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create New Blog</a>
+                <a href="<?php echo Helpers::admin_url('/create-post/'); ?>" class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create New Blog</a>
             </div>
             <div class="overflow-x-auto bg-white rounded-lg shadow-lg p-4">
                 <table class="w-full border-collapse border border-slate-300">
@@ -61,7 +61,7 @@ use Core\Helpers;
                                 <td class="py-3 px-4"><?php echo $post['user_id']; ?></td>
                                 <td class="py-3 px-4"><?php echo date('d M y', strtotime ($post['created_at'])); ?></td>
                                 <td class="py-3 px-4 flex space-x-4">
-                                    <a href="#" class="text-blue-600 hover:underline">Edit</a>
+                                    <a href="<?php echo Helpers::admin_url('/edit-post') . '?post_id='. $post['id'];; ?>" class="text-blue-600 hover:underline">Edit</a>
                                     <form method="POST" action="#">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="post_id" value="<?= $post['id']; ?>">

@@ -1,3 +1,10 @@
+<?php
+
+use Core\Helpers;
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
