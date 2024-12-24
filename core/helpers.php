@@ -46,4 +46,26 @@
         static function base_path( $path ){
             return BASE_PATH . $path;
         }
+
+        static function redirect( $url ){
+            header('location: ' . $url );
+            exit;
+        }
+
+        static function is_login( $redirect = '/'){
+            if( isset( $_SESSION['admin_logged_in'] ) && !empty($_SESSION['user_id']) ){
+    
+                // redirect to admin
+                Helpers::redirect( Helpers::admin_url('/' ) );
+            }
+        }
+
+        static function authorize_admin(){
+            if( !isset( $_SESSION['admin_logged_in'] ) && empty($_SESSION['user_id']) ){
+    
+                // redirect to admin
+                Helpers::redirect( '/login'  );
+            } 
+        }
+
     }

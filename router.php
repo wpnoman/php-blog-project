@@ -28,3 +28,6 @@
     // login register
     $router->get('/login', 'controllers/login.php' );
     $router->post('/login', 'controllers/admin-panel/actions/manage-login.php' );
+
+    $router->get('/registration', 'controllers/registration.php');
+    $router->post('/registration', 'controllers/admin-panel/actions/manage-registration.php');

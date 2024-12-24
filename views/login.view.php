@@ -45,7 +45,7 @@
         ?>
         <button type="submit" class="w-full px-4 py-2 bg-slate-800 text-white font-bold rounded-lg hover:bg-slate-700 transition">Login</button>
     </form>
-    <p class="text-center text-slate-600 mt-4">Don't have an account? <a href="./register.php" class="text-slate-800 font-bold hover:underline">Sign Up</a></p>
+    <p class="text-center text-slate-600 mt-4">Don't have an account? <a href="/registration" class="text-slate-800 font-bold hover:underline">Sign Up</a></p>
 </div>
 </body>
 
