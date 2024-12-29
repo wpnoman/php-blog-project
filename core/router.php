@@ -2,6 +2,7 @@
 
 namespace Core;
 use Core\Helpers;
+use Core\Middleware\Middleware;
 
 class Router{
 
@@ -12,6 +13,8 @@ class Router{
     }
     function get($uri, $controller){
         $this->add( 'GET', $uri, $controller ); 
+
+        return $this;
     }
     function delete($uri, $controller){
         $this->add( 'DELETE', $uri, $controller ); 
@@ -31,7 +34,8 @@ class Router{
         $this->routes[] = [
             'uri' => $uri,
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
+            'middlewire' => null
         ];
 
     }
@@ -40,11 +44,22 @@ class Router{
 
         foreach ( $this->routes as $route ){
             if( $uri == $route['uri'] && $method == $route['method'] ){
+
+                // check middlewire
+                Middleware::resolve( $route['middlewire']);
+
                 return require Helpers::base_path( $route['controller'] );
             }
         }
 
 
         Helpers::abort();
+    }
+
+    public function only( $key ){
+        // update middlewire
+        $this->routes[array_key_last($this->routes)]['middlewire'] = $key;
+        
+        return $this;
     }
 }

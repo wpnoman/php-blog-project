@@ -1,5 +1,3 @@
-<?php \Core\Helpers::authorize_admin(); ?>
-
 <!DOCTYPE html>
 <html lang="en">
 

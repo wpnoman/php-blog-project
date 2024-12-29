@@ -14,7 +14,7 @@
     // register routes
     $router->get('/', 'controllers/index.php');
     $router->get('/list', 'controllers/list.php');
-    $router->get('/admin-panel/', 'controllers/admin-panel/admin.php');
+    $router->get('/admin-panel/', 'controllers/admin-panel/admin.php')->only('auth');
     $router->get('/admin-panel/create-post/', 'controllers/admin-panel/actions/create-post.php');
     
     // deleting post
@@ -31,3 +31,6 @@
 
     $router->get('/registration', 'controllers/registration.php');
     $router->post('/registration', 'controllers/admin-panel/actions/manage-registration.php');
+
+    // logout
+    $router->get('/logout', 'controllers/admin-panel/actions/logout.php');

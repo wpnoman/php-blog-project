@@ -24,21 +24,31 @@ if( count( $error ) ){
     ] );
 }
 
-$user = $db->query('SELECT * from users where email=:email AND password=:password',[
-    'email' => $email,
-    'password' => $password
+// get the password
+$user = $db->query('SELECT * from users where email=:email ',[
+    'email' => $email
 ])->find();
 
-if( empty( $user ) ){
-    $error['notfound'] = 'Username or Password is wrong';
-}
+// if email not found
+if( empty( $user )){
+    $error['email'] = 'Email not exits';
 
-if( count( $error ) ){
     return Helpers::view( 'login', [
         'error' => $error
     ] );
 }
 
-if( !empty($user) ){
-    $_SESSION["user_id"] = $user['id'];
+$hass_pass = $user['password'];
+
+if( ! password_verify( $password, $hass_pass ) ){
+    $error['password'] = 'Password is wrong';
+
+    return Helpers::view( 'login', [
+        'error' => $error
+    ] );
 }
+
+$_SESSION["user_id"] = $user['id'];
+$_SESSION['admin_logged_in'] = true;
+
+Helpers::redirect( Helpers::admin_url('/') );

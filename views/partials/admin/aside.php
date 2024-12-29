@@ -15,6 +15,6 @@
         </ul>
     </nav>
     <div class="p-4">
-        <a href="#" class="block px-4 py-2 text-center rounded-md bg-red-600 hover:bg-red-500">Logout</a>
+        <a href="/logout" class="block px-4 py-2 text-center rounded-md bg-red-600 hover:bg-red-500">Logout</a>
     </div>
 </aside>
