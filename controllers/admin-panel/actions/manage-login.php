@@ -48,7 +48,6 @@ if( ! password_verify( $password, $hass_pass ) ){
     ] );
 }
 
-$_SESSION["user_id"] = $user['id'];
-$_SESSION['admin_logged_in'] = true;
+Helpers::login();
 
 Helpers::redirect( Helpers::admin_url('/') );

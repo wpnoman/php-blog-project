@@ -2,6 +2,5 @@
 
 use Core\Helpers;
 
-session_destroy();
-
+Helpers::logout();
 Helpers::redirect('/');

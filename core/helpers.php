@@ -75,4 +75,19 @@
             ])->find()['name'];
         }
 
+        static function logout(){
+            // destroying sessions
+            $_SERVER = [];
+            session_destroy();
+
+            $cookie = session_get_cookie_params();
+            setcookie( 'PHPSESSID', '', time() - 3600, $cookie['path'], $cookie['domain'], $cookie['secure'], $cookie['httponly'] );
+        }
+
+        static public function login( $user_id ){
+            
+            $_SESSION["user_id"] = $user['id'];
+            $_SESSION['admin_logged_in'] = true;
+        }
+
     }
